@@ -6,13 +6,23 @@
     {% csrf_token %}
     {% for field in register_form %}
         <div class ='quest'>
-            {{field.label}}        
-            {{field}}
+            
+            {% if field.name == 'password1'%}
+                {{field.label}}        
+                {{field}}
+                {{field.help_text}}
+                
+            {% else %}
+                {{field.label}}        
+                {{field}}
+                
+            {% endif %}
+
         </div>
     {% endfor %}
                         
     <button class="btn btn-primary" type="submit">Valider</button>
 
-    <p class="text-center">Si vous avez déja compter veuillez vous <a href="/login">connecter</a></p>
+    <p class="text-center">Si vous avez déja compter veuillez vous <a href={% url 'connexion' %}>connecter</a></p>
 </form>
 {% endblock content %}

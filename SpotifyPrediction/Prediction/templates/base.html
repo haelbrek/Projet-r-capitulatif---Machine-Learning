@@ -8,12 +8,36 @@
 </head>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% url 'inscription' as inscription %}    
+{% url 'connexion' as connexion %}
+{% url 'profil' as profil %}
+{% url 'home' as home %}
+
+
 <body>
-<header>
-    <img class='logo-container' src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
-    SpotifyPredict
-</header>
+    <header>
+        <a href={% url 'home' %}>SpotifyPredict</a>
+    </header>
+
+
+    {% if user.is_authenticated %}
+    <ul class = 'ulul'>
+        <li class = 'lili'  class='active'><a class = 'lilia'>Bienvenue {{ user.username }}</a></li>
+        <li class = 'lili'><a class = 'lilia' href={% url 'profil' %}>Mon Profil</a></li>
+        <li class = 'lili'><a class = 'lilia' href={% url 'logout' %}?next={{request.path}}>Deconnexion</a></li>
+    </ul>
+
+    {% else  %}
+    <ul class = 'ulul'>
+        <li class = 'lili' class='active'><a class = 'lilia'>Bienvenue</a></li>
+        <li class = 'lili'><a class = 'lilia' href={% url 'inscription' %}>S'inscrire </a></li>
+        <li class = 'lili'><a class = 'lilia' href={% url 'connexion' %}>Connexion </a></li>
+    </ul>
+    {% endif %}
+
     {% block content  %}
     {% endblock content %}
+    
 </body>
+
 </html> 
