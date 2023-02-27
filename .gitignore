@@ -3,3 +3,4 @@ mlruns
 .cache
 __pycache__
 *csv
+TestAPi.ipynb
