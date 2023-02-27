@@ -1,0 +1,6 @@
+artifact_location: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069
+creation_time: 1677143345949
+experiment_id: '969226087722360069'
+last_update_time: 1677143345949
+lifecycle_stage: active
+name: XGBoost

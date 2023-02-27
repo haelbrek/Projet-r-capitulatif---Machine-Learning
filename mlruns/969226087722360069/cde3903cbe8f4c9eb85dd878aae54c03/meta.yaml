@@ -1,0 +1,15 @@
+artifact_uri: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069/cde3903cbe8f4c9eb85dd878aae54c03/artifacts
+end_time: 1677250792564
+entry_point_name: ''
+experiment_id: '969226087722360069'
+lifecycle_stage: active
+run_id: cde3903cbe8f4c9eb85dd878aae54c03
+run_name: resilient-panda-378
+run_uuid: cde3903cbe8f4c9eb85dd878aae54c03
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677250695668
+status: 3
+tags: []
+user_id: apprenant

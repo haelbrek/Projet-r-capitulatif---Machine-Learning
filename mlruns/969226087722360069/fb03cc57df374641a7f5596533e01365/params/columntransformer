@@ -1,0 +1,5 @@
+ColumnTransformer(transformers=[('scaler', StandardScaler(),
+                                 ['duration_ms', 'danceability', 'loudness',
+                                  'acousticness', 'instrumentalness',
+                                  'duration_ms.1', 'year']),
+                                ('encoder', OneHotEncoder(), ['genre'])])

@@ -1,0 +1,6 @@
+[('columntransformer', ColumnTransformer(transformers=[('scaler', StandardScaler(),
+                                 ['duration_ms', 'danceability', 'loudness',
+                                  'acousticness', 'instrumentalness', 'year']),
+                                ('encoder', OneHotEncoder(), [])])), ('xgbregressor', XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping...
