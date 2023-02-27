@@ -1,0 +1,8 @@
+Pipeline(steps=[('columntransformer',
+                 ColumnTransformer(transformers=[('scaler', StandardScaler(),
+                                                  ['duration_ms',
+                                                   'danceability', 'loudness',
+                                                   'acousticness',
+                                                   'instrumentalness',
+                                                   'year']),
+                                     ...

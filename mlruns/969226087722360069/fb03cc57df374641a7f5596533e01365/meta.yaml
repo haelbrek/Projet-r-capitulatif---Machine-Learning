@@ -1,0 +1,15 @@
+artifact_uri: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069/fb03cc57df374641a7f5596533e01365/artifacts
+end_time: 1677158512822
+entry_point_name: ''
+experiment_id: '969226087722360069'
+lifecycle_stage: active
+run_id: fb03cc57df374641a7f5596533e01365
+run_name: colorful-shrike-270
+run_uuid: fb03cc57df374641a7f5596533e01365
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677158411338
+status: 3
+tags: []
+user_id: apprenant

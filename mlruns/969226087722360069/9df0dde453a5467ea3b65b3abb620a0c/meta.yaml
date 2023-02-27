@@ -1,0 +1,15 @@
+artifact_uri: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069/9df0dde453a5467ea3b65b3abb620a0c/artifacts
+end_time: 1677158512864
+entry_point_name: ''
+experiment_id: '969226087722360069'
+lifecycle_stage: active
+run_id: 9df0dde453a5467ea3b65b3abb620a0c
+run_name: xgboost1
+run_uuid: 9df0dde453a5467ea3b65b3abb620a0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677158411338
+status: 3
+tags: []
+user_id: apprenant

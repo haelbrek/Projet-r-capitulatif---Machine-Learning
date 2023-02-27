@@ -1,0 +1,15 @@
+artifact_uri: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069/4435b4af4a71411591f313d149e54bb2/artifacts
+end_time: 1677244664168
+entry_point_name: ''
+experiment_id: '969226087722360069'
+lifecycle_stage: active
+run_id: 4435b4af4a71411591f313d149e54bb2
+run_name: secretive-roo-952
+run_uuid: 4435b4af4a71411591f313d149e54bb2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677244576497
+status: 3
+tags: []
+user_id: apprenant

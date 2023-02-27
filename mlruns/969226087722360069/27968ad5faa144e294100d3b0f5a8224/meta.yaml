@@ -1,0 +1,15 @@
+artifact_uri: file:///home/apprenant/Documents/hamza/spotyfie/mlruns/969226087722360069/27968ad5faa144e294100d3b0f5a8224/artifacts
+end_time: 1677250009112
+entry_point_name: ''
+experiment_id: '969226087722360069'
+lifecycle_stage: active
+run_id: 27968ad5faa144e294100d3b0f5a8224
+run_name: upset-tern-192
+run_uuid: 27968ad5faa144e294100d3b0f5a8224
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1677249910721
+status: 3
+tags: []
+user_id: apprenant
