@@ -1,28 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form class = "square" method="POST">
-	<h1>Inscription</h1>
-    {% csrf_token %}
-    {% for field in register_form %}
-        <div class ='quest'>
-            
-            {% if field.name == 'password1'%}
-                {{field.label}}        
-                {{field}}
-                {{field.help_text}}
-                
-            {% else %}
-                {{field.label}}        
-                {{field}}
-                
-            {% endif %}
 
-        </div>
-    {% endfor %}
-                        
-    <button class="btn btn-primary" type="submit">Valider</button>
+{% load static %}
+<style>
+    body { 
+     background: url('{% static "images/connexion2.jpg" %}') no-repeat center center fixed; 
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     image-rendering: pixelated;
+     
+    }
+</style>
+    <form class = "square" method="POST">
+        <img class = 'image' src="{% static "images/inscription.jpg" %}" alt ='inscription'/>
+        <h1>Inscription</h1>
+        {% csrf_token %}
+        {% for field in register_form %}
+            <div class ='quest'>
+                
+                {% if field.name == 'password1'%}
+                    {{field.label}}        
+                    {{field}}
+                    {{field.help_text}}
+                    
+                {% else %}
+                    {{field.label}}        
+                    {{field}}
+                    
+                {% endif %}
 
-    <p class="text-center">Si vous avez déja compter veuillez vous <a href={% url 'connexion' %}>connecter</a></p>
-</form>
+            </div>
+        {% endfor %}
+                            
+        <button  class="button" type="submit">Valider</button>
+
+        <p class="text-center">Si vous avez déja compter veuillez vous <a href={% url 'connexion' %}>connecter</a></p>
+    </form>
 {% endblock content %}

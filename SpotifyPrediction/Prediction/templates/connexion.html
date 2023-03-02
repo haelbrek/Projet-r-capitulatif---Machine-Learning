@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <form class= 'square' method="POST">
+{% load static %}
+<style>
+  body { 
+   background: url('{% static "images/inscription2.jpg" %}') no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   image-rendering: pixelated;
+   
+  }
+</style>
+  <form class= 'square' method="POST">
+    <img class = 'image' src="{% static "images/connexion.jpg" %}" alt = 'connexion'/>
     <h1>Se connecter </h1>
       {% csrf_token %}
-      {% for field in login_form %}
-        <div>
-            {{field}}
-        </div>
-      {% endfor %}
+        {% for field in login_form %}
+          <div class='quest'>
+              {{field.label}}
+              {{field}}
+          </div>
+        {% endfor %}
       
-      <button class="btn btn-primary" type="submit">Connexion</button>
+      <button class="button" type="submit">Connexion</button>
       <p class="text-center">Vous n'avez pas de compte ? <a href={% url 'inscription' %}>Créer un compte.</a></p>
     </form>
-    
 
 {% endblock content %}

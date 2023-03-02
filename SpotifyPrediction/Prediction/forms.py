@@ -30,7 +30,7 @@ class SearchForm(forms.ModelForm):
 	
 	class Meta:
 		model = models.Prediction
-		fields = '__all__'
+		fields = ['tracks','artiste']
 		labels = {
 			'tracks' : 'Choisissez le nom de la chanson',
 			'artiste' : "Choisissez le nom de l'artiste"

@@ -2,35 +2,28 @@ import requests
 import os
 import base64
 import requests
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import time
 
 
-client_ID = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
-# encode client_id and client_secret in base64
-client_credentials = f"{client_ID}:{client_secret}".encode("ascii")
-base64_credentials = base64.b64encode(client_credentials).decode("ascii")
+def get_access_token(client_id, client_secret):
+   
+    client_str = f"{client_id}:{client_secret}"
+    client_b64 = base64.b64encode(client_str.encode()).decode()
 
-# make request for access token
-def get_token():
-    url = "https://accounts.spotify.com/api/token"
-    response = requests.post(
-        url,
-        headers={
-            "Authorization": f"Basic {base64_credentials}",
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data={"grant_type": "client_credentials"}
-    )
+    headers = {"Authorization": f"Basic {client_b64}"}
+    data = {"grant_type": "client_credentials"}
 
-    if response.status_code == 200:
-        access_token = response.json()["access_token"]
-        return response.text
-        print(f"Access Token: {access_token}")
-    else:
-        print(f"Error: {response.text}")
+    
+    response = requests.post("https://accounts.spotify.com/api/token", headers=headers, data=data)
 
-def get_track_id(artist_name, track_name,token):
-    global access_token
+    token_data = response.json()
+    
+    return token_data['access_token']
+
+def get_track_id(artist_name, track_name,access_token):
+    
     url = "https://api.spotify.com/v1/search"
     params = {
         "q": f"{artist_name} {track_name}",
@@ -52,10 +45,9 @@ def get_track_id(artist_name, track_name,token):
         else:
             return 'yoyo'
     else:
-        return 'okok'
+        return 'None'
 
-def get_audio_features(track_id):
-    global access_token
+def get_audio_features(track_id,access_token):
     url = f"https://api.spotify.com/v1/audio-features/{track_id}"
     response = requests.get(
         url,
@@ -79,6 +71,7 @@ def get_audio_features(track_id):
             data["valence"],
             data["tempo"],
             data["duration_ms"],
+            
         ]
     else:
         return 'none'

@@ -2,9 +2,8 @@
 
 {% block content %}
 {% csrf_token %}
-    <form class="square"> 
-        {{result}}
-    </form>
-    
+{% for field in history  %}
+    {{field}}
+{% endfor %}
 
 {% endblock content %}

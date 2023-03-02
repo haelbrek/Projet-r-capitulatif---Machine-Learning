@@ -1,19 +1,21 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 {% if user.is_authenticated %}
-<form class = "square" method="POST">
-	<h1>Prédis ta chanson !</h1>
-    {% csrf_token %}
-    {% for field in predict%}
-        <div class ='quest'>
-            {{field.label}}        
-            {{field}}
-        </div>
-    {% endfor %}
-                        
-    <button class="btn btn-primary" type="submit">Valider</button>
+    <form class = "square" method="POST">
+        {% csrf_token %}
+        <h1>Prédis ta chanson !</h1>
+        {% for field in predict%}
+            <div class ='quest'>
+                {{field.label}}        
+                {{field}}
+            </div>
+        {% endfor %}
+                            
+        <button class="btn btn-primary" class='button' type="submit">Valider</button>
 
-</form>
+    </form>
+{% else %}
+    <img class= "music" src="{% static "images/Music.png" %}" alt="logo">
 {% endif %}
 {% endblock content %}
