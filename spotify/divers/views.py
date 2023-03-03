@@ -3,7 +3,6 @@ from .form import TrackSearchForm
 import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import joblib
 import pandas as pd
 from django.shortcuts import render
 import requests
@@ -11,11 +10,36 @@ import json
 from fastapi import FastAPI, Request
 from spotipy.oauth2 import SpotifyClientCredentials
 
+
+import base64
+import requests
+
+
 client_id = "57b235e173ab4a8e819796e3d085577f"
 client_secret = "588d7118aed6407096d2e70d6484d7b4"
+
+# encode client_id and client_secret in base64
+client_credentials = f"{client_id}:{client_secret}".encode("ascii")
+base64_credentials = base64.b64encode(client_credentials).decode("ascii")
+
+# make request for access token
+url = "https://accounts.spotify.com/api/token"
+response = requests.post(
+    url,
+    headers={
+        "Authorization": f"Basic {base64_credentials}",
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    data={"grant_type": "client_credentials"}
+)
+
+if response.status_code == 200:
+    access_token = response.json()["access_token"]
+    
+
 client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-access_token = 'BQBM5Qk49-H3RgXGbbYz6koQJhWLuM5x0WRqYldhVLoynbTAAFQxuRWMr41OP8D23VVvkt6aWXQJsbUAzetPPXcBoSPjsb5VkC7ZeHcVj4R_p-7t2o-N'
+
 def get_track_info(artist_name, track_name):
     global access_token
     url = "https://api.spotify.com/v1/search"
@@ -72,7 +96,7 @@ def search_track(request):
             if track_info:
                 data = json.dumps(track_info)
                 print(data)
-                response=requests.post('http://127.0.0.1:8000/predict', headers=header, data=data)
+                response=requests.post('http://20.8.129.19/predict', headers=header, data=data)
                 print(response)
                 return render(request, 'formulaire.html', context={'response': response.text, 'form': form1})
             else:

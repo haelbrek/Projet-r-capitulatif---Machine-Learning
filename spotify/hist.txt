@@ -1,0 +1,597 @@
+    1  pip install mini-conda
+    2  sudo apt update && sudo apt upgrade\n
+    3  bash Miniconda3-latest-Linux-x86_64.sh\n
+    4  sudo apt install Miniconda3-latest-Linux-x86_64.sh\n
+    5  ls 
+    6  cd ..
+    7  ls 
+    8  cd Téléchargements
+    9  ls 
+   10  sudo apt install Miniconda3-latest-Linux-x86_64.sh44\n
+   11  weget  Miniconda3-latest-Linux-x86_64.sh44\n
+   12  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh\n
+   13  bash Miniconda3-latest-Linux-x86_64.sh\n
+   14  conda list 
+   15  vim ~/.zshrc
+   16  source ~/.bash_profile
+   17  export PATH="/usr/local/anaconda3/bin:$PATH"
+   18  conda list 
+   19  source /opt/anaconda3/bin/activate
+   20  PATH="$HOME/opt/anaconda3/bin:$PATH"
+   21  conda list 
+   22  source ~/.zshrc\necho $HOME\necho $PATH
+   23  conda list 
+   24  conda create --name env_Data_scientist python3 scikit-learn 
+   25  conda create --name env_Data_scientist python3 
+   26  conda create --name env_Data_scientist python 
+   27  conda actavate env_Data_Scientist
+   28  conda activate env_Data_Scientist
+   29  conda info --envs
+   30  conda activate env_Data_scientist
+   31  pip install scikit-learn 
+   32  sudo apt-get install git
+   33  git --version
+   34  git clone git@github.com:haelbrek/Olist.git
+   35  ls -al ~/.ssh
+   36  ssh-keygen -t ed25519 -C "hamzaelbrek3@gmail.com"
+   37  eval "$(ssh-agent -s)"
+   38  ssh-add ~/.ssh/id_ed25519
+   39  cat ~/.ssh/id_ed25519.pub
+   40  git clone git@github.com:haelbrek/Olist.git
+   41  cd .. 
+   42  ls 
+   43  cd Documents
+   44  ls 
+   45  mkdir hamza
+   46  cd hamza
+   47  git clone git@github.com:haelbrek/Olist.git
+   48  code . 
+   49  git switch hamza
+   50  git branch 
+   51  git init 
+   52  git branch 
+   53  git status
+   54  git checkout hamza
+   55  git branch hamza
+   56  pip instal shapely
+   57  conda activate env_MLC
+   58  pip install shapely
+   59  pip install geopandas
+   60  pip install plotly 
+   61  pip install geopy
+   62  pip install yellowbrick
+   63  pip install go 
+   64  pip install plotly 
+   65  pip install plotly  install nbformat --upgrade
+   66  pip install nbformat>=4.2.0\n
+   67  source ~/.zshrc\necho $HOME\necho $PATH
+   68  conda activate env_MLC
+   69  pip install nbformat>=4.2.0\n
+   70  pip install nbformat\n
+   71  pip install nbformat>=4.2.0
+   72  pip install --upgrade nbformat\n
+   73  pip install --upgrade nbformat\n install nbformat \n
+   74  pip3 install --upgrade nbformat\n
+   75  nbformat.__version__
+   76  pip install nbformat==5.1.2
+   77  pip install nbformat==4.2.0
+   78  pip install --upgrade nbformat
+   79  pip install ipykernel
+   80  git add . 
+   81  git commit --m "radar plot, Mdélisation"
+   82  git config --global user.email "hamzaelbrek3@gmail.com"
+   83  git config --global user.name "haelbrek"
+   84  conda activate en
+   85  conda activate env_MLC
+   86  git commit --m "radar plot, Mdélisation"
+   87  git push 
+   88  git add . 
+   89  git commit -m "Score ARI" 
+   90  git push 
+   91  git pull origin/hamza 
+   92  git pull 
+   93  git add .
+   94  git commit -m "score ARI & SilhouetteVisualize"
+   95  git push 
+   96  git add . 
+   97  git commit -m "finale presentation"
+   98  git push
+   99  git merge origin/main
+  100  git pull 
+  101  git switch hamza
+  102  git switch main
+  103  git add . 
+  104  git commit -m " ameliorer score de Rand "
+  105  git switch main 
+  106  git merge hamza 
+  107  git switch hamza 
+  108  git pull 
+  109  conda activate MLC
+  110  conda activate env_MLC
+  111  git remote add origin git@github.com:haelbrek/Projet-r-capitulatif---Machine-Learning.git
+  112  git init 
+  113  git remote add origin git@github.com:haelbrek/Projet-r-capitulatif---Machine-Learning.git
+  114  git branch -M main 
+  115  git push -u origin main 
+  116  git branch dev 
+  117  git push -u origin main 
+  118  git checkout dev 
+  119  apt-get install git-flow 
+  120  sudo rm -f /var/lib/dpkg/lock
+  121  apt-get install git-flow 
+  122  ls -l /var/lib/dpkg/lock
+  123  \tcd .. 
+  124  ls 
+  125  apt-get install git-flow 
+  126  su -
+  127  apt-get install git-flow 
+  128  sudo rm /var/lib/dpkg/lock-frontend
+  129  sudo rm /var/lib/apt/lists/lock
+  130  sudo rm /var/cache/apt/archives/lock
+  131  sudo rm /var/lib/dpkg/lock
+  132  sudo dpkg --configure -a
+  133  sudo apt-get update\nsudo apt-get upgrade\nsudo apt-get install typespeed
+  134  apt-get install git-flow 
+  135  sudo rm -f /var/lib/dpkg/lock
+  136  sudo rm -f /var/lib/dpkg/lock/lock-frontend
+  137  apt-get install git-flow 
+  138  ps aux | grep -i apt
+  139  sudo kill -9 33322
+  140  ps aux | grep -i apt
+  141  sudo killall apt apt-get
+  142  apt-get install git-flow 
+  143  sudo kill -9 41496
+  144  apt-get install git-flow 
+  145  ps aux | grep -i apt
+  146  sudo kill -9 41594
+  147  ps aux | grep -i apt
+  148  apt-get install git-flow 
+  149  sudo killall apt apt-get
+  150  sudo fuser /var/lib/dpkg/lock-frontend
+  151  ps aux | grep -i apt
+  152  sudo dpkg-reconfigure -plow unattended-upgrades\n
+  153  sudo dpkg --configure -a
+  154  ^[[200~sudo apt-get update && sudo apt-get upgrade
+  155  sudo apt-get update && sudo apt-get upgrade\n
+  156  sudo dpkg-reconfigure -plow unattended-upgrades\n
+  157  sudo killall apt apt-get
+  158  ps aux | grep -i apt
+  159  sudo kill -9 43022
+  160  apt-get install git-flow 
+  161  sudo apt-get install git-flow 
+  162  ls 
+  163  cd spotyfie
+  164  git flow init 
+  165  git branch
+  166  git flow feature start requete_api
+  167  git branch 
+  168  code . 
+  169  git add . 
+  170  git -m commit "api.py"
+  171  git flow feature publish requete_api
+  172  git add . 
+  173  git commit -m "commit"
+  174  git flow feature publish requete_api
+  175  git flow feature pull origin requite_api
+  176  git pull origin feature/requete_api
+  177  git flow finish requete_api
+  178  git add . 
+  179  git commit -m "gitflow"
+  180  git push 
+  181  git pull origin devlop
+  182  git pull origin develop
+  183  git pull 
+  184  git pull origin develop
+  185  git pull origin develop 
+  186  git branch 
+  187  git pull origin develop 
+  188  git status 
+  189  git branch
+  190  git config pull.rebase false 
+  191  git pull origin develop 
+  192  git config pull.rebase true
+  193  git config pull.ff only
+  194  git pull origin develop 
+  195  git pull --ff-only\n
+  196  git pull origin develop 
+  197  git pull --rebase
+  198  git pull origin develop 
+  199  git config --global pull.rebase true
+  200  git pull origin develop 
+  201  git config --global pull.ff only
+  202  git config pull.rebase false 
+  203  git config pull.rebase true 
+  204  git config pull.ff only 
+  205  git pull origin develop 
+  206  git checkout main\n
+  207  git pull 
+  208  git checkout develop\n
+  209  git pull origin develop 
+  210  git pull --tags origin develop
+  211  git pull 
+  212  git branch --set-upstream-to=origin/develop develop
+  213  git pull origin develop 
+  214  git pull 
+  215  \ngit pull --rebase
+  216  git pull origin develop 
+  217  code . 
+  218  conda activate env_MLC
+  219  pip install python3
+  220  pip install python
+  221  code . 
+  222  conda activate env_MLC
+  223  pip install spotipy 
+  224  pip install tqdm
+  225  git flow release start requet_hamza
+  226  git flow realese start requet_hamza
+  227  git flow feature start requet_hamza
+  228  pip intall xgboost
+  229  pip install xgboost
+  230  pip install mlflow
+  231  mlflow ui
+  232  conda activate env_MLC
+  233  mlflow ui
+  234  code .
+  235  pip install django
+  236  django-admin startproject spotify
+  237  cd spotify
+  238  ls 
+  239  python manage.py startapp divers
+  240  python manage.py runserver
+  241  pip install django-crispy-forms\n
+  242  python manage.py runserver
+  243  python manage.py runserver 8001
+  244  pip install django-crispy-forms\n
+  245  python manage.py runserver 8001
+  246  python manage.py runserver 8002
+  247  python manage.py runserver 8003
+  248  pip install django-bootstrap4\n
+  249  python manage.py runserver 8004
+  250  python manage.py runserver 8005
+  251  python manage.py runserver 8006
+  252  python manage.py runserver 8007
+  253  pip install crispy-bootstrap5
+  254  python manage.py runserver 8008
+  255  python manage.py runserver 8009
+  256  python manage.py runserver 8010
+  257  python manage.py runserver 8011
+  258  python manage.py runserver 8012
+  259  python manage.py runserver 8013
+  260  python manage.py runserver 8014
+  261  python manage.py runserver 8015
+  262  python manage.py runserver 8016
+  263  pip install spotipy
+  264  python manage.py runserver 8017
+  265  mlflow ui
+  266  cd ..
+  267  mlflow ui
+  268  ls 
+  269  cd ..
+  270  cd hamza
+  271  cd spotyfie
+  272  cd hamza
+  273  ls 
+  274  mlflow ui
+  275  lsof -i :5000
+  276  mlflow ui
+  277  fuser -k 5000/tcp
+  278  mlflow ui
+  279  python manage.py runserver 8018
+  280  ls 
+  281  cd spotify
+  282  ls 
+  283  python manage.py runserver 8018
+  284  python manage.py runserver 8019
+  285  python manage.py runserver 8020
+  286  conda activate env_MLC
+  287  mlflow ui
+  288  fuser -k 5000/tcp
+  289  mlflow ui
+  290  ls 
+  291  cd Documents
+  292  ls 
+  293  mkdir cours_docker 
+  294  cd cours_docker
+  295  ls 
+  296  git clone git@github.com:jeremy-vangansberg/cours-docker.git
+  297  ls 
+  298  git status 
+  299  cd cours-docker
+  300  conda activate env_MLC 
+  301  cd start
+  302  cd 4.bind_mount/
+  303  code . 
+  304  cd start
+  305  django-admin startproject demo . 
+  306  python manage.py startapp main 
+  307  python manage.py runverver 
+  308  ls 
+  309  docker build -t bind_mount . 
+  310  ls 
+  311  cd ..
+  312  ls 
+  313  pip install fastapi uvicorn
+  314  uvicorn app:app --reload
+  315  ls 
+  316  cd spotify
+  317  ls 
+  318  cd ..
+  319  ls 
+  320  uvicorn app:app --reload
+  321  lsof -i :8000
+  322  uvicorn app:app --reload
+  323  ls 
+  324  uvicorn app:app --reload
+  325  sudo lsof -i :5000
+  326  uvicorn app:app --reload
+  327  sudo lsof -t -i tcp:8000 | xargs kill -9
+  328  uvicorn app:app --reload
+  329  sudo lsof -t -i tcp:8000 | xargs kill -9
+  330  uvicorn app:app --reload
+  331  sudo lsof -t -i tcp:8000 | xargs kill -9
+  332  uvicorn app:app --reload
+  333  ls 
+  334  python manage.py runserver 8022
+  335  cd spotify
+  336  python manage.py runserver 8022
+  337  python manage.py runserver 8023
+  338  python manage.py runserver 8024
+  339  python manage.py runserver 8025
+  340  python manage.py runserver 8026
+  341  ls 
+  342  uvicorn app:app --reload
+  343  sudo lsof -t -i tcp:8000 | xargs kill -9
+  344  uvicorn app:app --reload
+  345  python manage.py runserver 8026
+  346  python manage.py runserver 8027
+  347  python manage.py runserver 8028
+  348  python manage.py runserver 8029
+  349  python manage.py runserver 8030
+  350  python manage.py runserver 8031
+  351  python manage.py runserver 8032
+  352  python manage.py runserver 8033
+  353  python manage.py runserver 8034
+  354  python manage.py runserver 8035
+  355  python manage.py runserver 8036
+  356  python manage.py runserver 8037
+  357  python manage.py runserver 8038
+  358  python manage.py runserver 8039
+  359  uvicorn app:app --reload
+  360  python manage.py runserver 8039
+  361  sudo lsof -t -i tcp:8000 | xargs kill -9
+  362  python manage.py runserver 8039
+  363  uvicorn app:app --reload
+  364  python manage.py runserver 8039
+  365  python manage.py runserver 8040
+  366  sudo lsof -t -i tcp:8000 | xargs kill -9
+  367  uvicorn app:app --reload
+  368  python manage.py runserver 8040
+  369  python manage.py runserver 8041
+  370  sudo apt-get remove docker docker-engine docker.io containerd runc
+  371  sudo apt-get update
+  372  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  373  sudo mkdir -m 0755 -p /etc/apt/keyrings\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  374  echo \\n  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \\n  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  375  sudo apt-get update
+  376  sudo chmod a+r /etc/apt/keyrings/docker.gpg\nsudo apt-get update
+  377  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  378  sudo docker run hello-world
+  379  uvicorn app:app --reload
+  380  sudo lsof -t -i tcp:8000 | xargs kill -9
+  381  uvicorn app:app --reload
+  382  docker run -d -p 80:80 docker/getting-started
+  383  docker
+  384  git flow finish requete_hamza
+  385  git flow feature publish requet_hamza
+  386  git status 
+  387  git add . 
+  388  git commit -m "fastApi & mlflow" 
+  389  git flow feature publish requet_hamza
+  390  git push 
+  391  git pull 
+  392  git branch 
+  393  git add . 
+  394  git commit -m "nouvelle version" 
+  395  git push 
+  396  docker build -t bind_mount . 
+  397  ls 
+  398  cd ..
+  399  ls 
+  400  cd spotyfie
+  401  ls 
+  402  cd spotify
+  403  ls 
+  404  docker build -t bind_mount . 
+  405  rm ~/.docker/config.json\n
+  406  docker build -t bind_mount . 
+  407  sudo groupadd docker
+  408  sudo usermod -aG docker $ habrek\n
+  409  sudo usermod -aG docker habrek\n
+  410  sudo groupadd docker
+  411  sudo usermod -aG docker $habrek
+  412  newgrp docker
+  413  sudo usermod -aG docker $habrek
+  414  docker run hello-world
+  415  sudo docker run hello-world
+  416  docker run hello-world
+  417  sudo docker run hello-world
+  418  sudo systemctl status docker
+  419  sudo docker build -t bind_mount . 
+  420  docker scan
+  421  apt-get update && apt-get install docker-scan-plugin
+  422  sudo apt-get update && sudo apt-get install docker-scan-plugin
+  423  yum install docker-scan-plugin
+  424  pip install docker-scan-plugin
+  425  sudo docker build -t bind_mount . 
+  426  sudo docker scan -t bind_mount . 
+  427  sudo docker scan hello-world
+  428  sudo docker build -t bind_mount . 
+  429  docker build . -f Dockerfile.txt
+  430  sudo docker build . -f Dockerfile.txt
+  431  ls 
+  432  cd spotify
+  433  ls 
+  434  sudo docker build . -f Dockerfile.txt
+  435  docker build . -f Dockerfile.base -t helloworld\n
+  436  sudo docker build . -f Dockerfile.base -t helloworld\n
+  437  docker run --rm -it helloworld\n
+  438  sudo docker run --rm -it helloworld\n
+  439  LS 
+  440  ls 
+  441  cd spotify
+  442  sudo docker build . -f Dockerfile.base -t helloworld\n
+  443  conda activate env_MLC
+  444  docker run hello-world
+  445  sudo docker run hello-world
+  446  sudo docker build . -f Dockerfile.base -t helloworld\n
+  447* ^[[200~sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && sudo chmod +x /usr/bin/docker-compose
+  448* ~sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && sudo chmod +x /usr/bin/docker-compose\n
+  449* sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && sudo chmod +x /usr/bin/docker-compose\n
+  450* > docker-compose --version\ndocker-compose version 1.23.2, build 1110ad01
+  451* conda activate env_MLC
+  452* > docker-compose --version\ndocker-compose version 1.23.2, build 1110ad01
+  453* > docker-compose --version
+  454* gpg --gen-key
+  455* gpg --gen-key 
+  456* gpg --export
+  457* gpg --export thidelattre@gmail.com
+  458* gpg --export -a thidelattre@gmail.com
+  459* gpg --delete-secret-key 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\n=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\n=nTLx
+  460* gpg --delete-secret-key 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\n=nTLx
+  461* gpg --delete-secret-key A7BF1D1360B414EB
+  462* sudo docker build . -f Dockerfile.base -t helloworld\n
+  463  ls 
+  464  ls
+  465  sudo docker build -t django_hamza .
+  466  docker build -t django_hamza .
+  467  sudo docker build -t django_hamza .
+  468  docker run -p 8000:8000 django_hamza
+  469  sudo docker run -p 8000:8000 django_hamza
+  470  sudo docker build -t django_hamza .
+  471  sudo docker run -p 8000:8000 django_hamza
+  472  sudo docker build -t django_api .
+  473  sudo docker run -p 8000:8000 django_api
+  474  sudo docker build -t django_api .
+  475  sudo docker run -p 8000:8000 django_api
+  476  sudo docker build -t django_api .
+  477  sudo docker run -p 8000:8000 django_api
+  478* uvicorn app:app --reload
+  479* conda activate env_MLC
+  480* uvicorn app:app --reload
+  481* sudo lsof -t -i tcp:8000 | xargs kill -9
+  482* uvicorn app:app --reload
+  483* sudo lsof -t -i tcp:8000 | xargs kill -9
+  484* uvicorn app:app --reload
+  485* uvicorn main:app --reload
+  486* ls 
+  487* cd ..
+  488* ls 
+  489* uvicorn main:app --reload
+  490  sudo docker run -p 8000:8000 django_api
+  491  ls 
+  492  sudo docker run -p 8000:8000 django_api
+  493  sudo docker build -t django_fastapi .
+  494  sudo docker run -p 8000:8000 django_fastapi
+  495  sudo docker run -p 8080:8000 django_fastapi
+  496  docker ps 
+  497  sudo docker ps 
+  498  sudo docker ps IMAGE
+  499  sudo docker run -p 8080:8000 django_fastapi
+  500* conda activate env_MLC
+  501* ls 
+  502* python manage.py runserver
+  503* ls 
+  504* cd ..
+  505* ls 
+  506* cd spotyfie
+  507* ls 
+  508* cd ..
+  509* cd spotyfie
+  510* ls 
+  511* cd spotify
+  512* ls 
+  513* python manage.py runserver
+  514* python manage.py runserver 8042
+  515  sudo docker run -p 8080:8000 django_fastapi
+  516  sudo docker ps -a
+  517  sudo docker run -di --name django_fastapi xenodochial_moser:latest
+  518  ls 
+  519  sudo docker exec-ti django_fastapi sh 
+  520  sudo docker exec -ti django_fastapi sh 
+  521  sudo docker run -di --name django  xenodochial_moser:latest
+  522  sudo docker build -t django_fastapi .
+  523  sudo docker ps -a
+  524  sudo docker run -di --name django_api  fervent_thompson:latest
+  525  sudo docker run -di --name django_fastapi  xenodochial_moser:latest
+  526  sudo docker exec -ti django_fastapi sh 
+  527  sudo docker exec -ti 
+  528  sudo docker exec -ti django_api sh 
+  529  sudo docker login 
+  530  sudo docker run -p 8080:8000 django_fastapi
+  531  sudo docker build -t django_fastapi .
+  532  docker images
+  533  sudo docker images
+  534  docker build --progress=plain
+  535  sudo docker build -t django .
+  536  docker run -d -p 80:80 docker/getting-started
+  537  sudo docker exec -ti django sh 
+  538  docker images
+  539  sudo docker ps -a
+  540  sudo docker build -t django .
+  541  sudo docker run -p 8080:8000 django_fastapi
+  542  sudo docker run -p 8080:8000 django
+  543  sudo docker start getting-started
+  544  sudo docker ps -a
+  545  docker build . 
+  546  sudo docker ps -a
+  547  ls
+  548  docker run  sha256:26e8e5e0359e71c547ed033893002bd8c5c67b7efeceeec10bf25fc38e83f9f3
+  549  sudo docker ps -a
+  550  docker run -di --app  sha256:26e8e5e0359e71c547ed033893002bd8c5c67b7efeceeec10bf25fc38e83f9f3
+  551  docker run -di --name  sha256:26e8e5e0359e71c547ed033893002bd8c5c67b7efeceeec10bf25fc38e83f9f3
+  552  docker run -di   sha256:26e8e5e0359e71c547ed033893002bd8c5c67b7efeceeec10bf25fc38e83f9f3
+  553  docker exec -ti sh
+  554  docker exec -ti none  sh
+  555  docker ps -a
+  556  docker exec -ti 26e8e5e0359e sh
+  557  docker build  app
+  558  docker build /app
+  559  docker run -di --app  sha256:26e8e5e0359e71c547ed033893002bd8c5c67b7efeceeec10bf25fc38e83f9f3
+  560  docker build /app/
+  561  docker build .app
+  562  docker ps -a
+  563  docker build . app
+  564  docker build app
+  565  docker run -p 8080:8000 api
+  566  docker compose up --build
+  567  docker compose up --build app
+  568  docker compose up --build
+  569  docker ps -a
+  570  docker run -di --name app spotify-web:latest
+  571  docker run -di --name app1 spotify-web:latest
+  572  docker  exec -ti app1 sh
+  573* python manage.py runserver 8043
+  574* python manage.py createsuperuser
+  575* ls 
+  576* python manage.py magrate 
+  577* python manage.py migrate 
+  578* python manage.py createsuperuser
+  579* python manage.py runserver 8043
+  580* python manage.py runserver 8044
+  581* ls 
+  582* uvicorn main:app --reload
+  583* sudo lsof -t -i tcp:8000 | xargs kill -9
+  584* uvicorn main:app --reload
+  585* sudo lsof -t -i tcp:8000 | xargs kill -9
+  586* ls
+  587* cd ..
+  588* ls 
+  589* uvicorn main:app --reload
+  590* ls 
+  591* cd spotify
+  592* ls 
+  593* python manage.py runserver 
+  594* python manage.py runserver 8085
+  595  docker build -t django_hamza .
+  596  hist 
+  597  history
