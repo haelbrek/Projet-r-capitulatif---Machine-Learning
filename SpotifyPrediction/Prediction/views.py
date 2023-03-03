@@ -13,7 +13,8 @@ import os
 from .models import Parameters,Prediction
 from dotenv import load_dotenv
 import requests
-liste = ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient',
+
+liste_genre = ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient',
        'anime', 'black-metal', 'bluegrass', 'blues', 'brazil',
        'breakbeat', 'british', 'cantopop', 'chicago-house', 'children',
        'chill', 'classical', 'club', 'comedy', 'country', 'dance',
@@ -33,7 +34,7 @@ liste = ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient',
        'show-tunes', 'singer-songwriter', 'ska', 'sleep', 'songwriter',
        'soul', 'spanish', 'study', 'swedish', 'synth-pop', 'tango',
        'techno', 'trance', 'trip-hop', 'turkish', 'world-music']
-def get_genre(track_name,artist_name):
+def get_genre(track_name,artist_name,liste_genre):
 
     base_url = 'http://ws.audioscrobbler.com/2.0/'
     params = {'method': 'track.gettoptags',
@@ -43,14 +44,18 @@ def get_genre(track_name,artist_name):
             'format': 'json'}
 
     # Make the request to LastFM
+    print(liste_genre)
+
     response = requests.get(base_url, params=params)
     # Check to make sure the request was successful
+    print(response)
     if response.status_code == 200:
         # Get the tags from the response
         tags = response.json().get('toptags', {}).get('tag', [])
         for tag in tags:
             
-            if tag.get('name') in liste:
+            if tag.get('name') in liste_genre:
+                print(tag.get('name'))
                 return tag.get('name')
                     
 
@@ -113,7 +118,8 @@ def homepage_view(request):
             # utilisez la query pour requeter l'api de spotify
             id = get_track_id(query['artiste'], query['tracks'], access_token)
             res = get_audio_features(id, access_token)
-            res.append(get_genre(query['tracks'],query['artiste']))
+            stock = get_genre(query['tracks'],query['artiste'],liste_genre)
+            res.append(stock)
             col_names = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
                         'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms','genre']
 
@@ -134,10 +140,12 @@ def homepage_view(request):
                 duration_ms=res[11],
                 genre = str(res[12])
             )
-
+            print(query['artiste'])
+            print(res[12])
             parameters.save()
             
             model = requests.post(url=url, data=features, headers=headers)
+            print(model)
             model_result = round(float(model.text), 0)
             form(
                 tracks=tracks,
