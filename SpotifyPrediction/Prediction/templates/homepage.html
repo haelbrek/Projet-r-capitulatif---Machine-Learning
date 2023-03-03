@@ -4,6 +4,7 @@
 {% if user.is_authenticated %}
     <form class = "square" method="POST">
         {% csrf_token %}
+        <img class = 'image' src="{% static "images/casque.jpg" %}" alt = 'connexion'/>
         <h1>Prédis ta chanson !</h1>
         {% for field in predict%}
             <div class ='quest'>

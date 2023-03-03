@@ -14,7 +14,7 @@
 </style>
   <form class= 'square' method="POST">
     <img class = 'image' src="{% static "images/connexion.jpg" %}" alt = 'connexion'/>
-    <h1>Se connecter </h1>
+    <h1 >Se connecter </h1>
       {% csrf_token %}
         {% for field in login_form %}
           <div class='quest'>
