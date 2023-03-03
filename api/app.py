@@ -19,14 +19,14 @@ class Request_Body(BaseModel):
     key : int
     loudness : float
     mode : int
-    speechiness      :  float
-    acousticness     :  float
-    instrumentalness :  float
-    liveness         :  float
-    valence          :  float
-    tempo            :  float
-    duration_ms      :  int
-    genre : object
+    speechiness :float
+    acousticness :float
+    instrumentalness:float
+    liveness:float
+    valence :float
+    tempo:float
+    duration_ms :int
+    genre : str
 
 @app.post('/predict')
 

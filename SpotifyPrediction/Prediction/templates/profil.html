@@ -1,9 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="chartContainer" style="width: 100%; height: 360px;"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 {% csrf_token %}
-{% for field in history  %}
-    {{field}}
-{% endfor %}
 
+
+<script>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer",{
+        exportEnabled: true,
+        animationEnabled: true,
+        theme: "dark2",
+        title: {
+          text: "Historique de recherche"
+        },
+        subtitles: [{
+          text: "Genres musicaux les plus recherché"
+        }],
+        data: [{
+          type: "doughnut",
+          startAngle: -90,
+          indexLabel: "{name} ({y})",
+          yValueFormatString: "#,##0.0#\"%\"",
+          dataPoints: {{ data|safe }}
+        }]
+      });
+      chart.render();
+    }
+  </script>    
+      
 {% endblock content %}

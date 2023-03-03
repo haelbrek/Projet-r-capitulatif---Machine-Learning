@@ -9,6 +9,7 @@ class Prediction(models.Model):
     artiste = models.CharField(null=False,max_length=40)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
     popularity = models.IntegerField(null=True)
+    genre = models.CharField(null=True,max_length=80)
 
 class Parameters(models.Model) :
     duration_ms = models.PositiveIntegerField(null=True)
@@ -24,3 +25,5 @@ class Parameters(models.Model) :
     valence =models.FloatField(null=True)
     tempo = models.FloatField(null=True)
     time_signature = models.PositiveIntegerField(null=True)
+    genre = models.CharField(null=True,max_length=80)
+    

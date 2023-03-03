@@ -12,6 +12,50 @@ from .fonctions import *
 import os
 from .models import Parameters,Prediction
 from dotenv import load_dotenv
+import requests
+liste = ['acoustic', 'afrobeat', 'alt-rock', 'alternative', 'ambient',
+       'anime', 'black-metal', 'bluegrass', 'blues', 'brazil',
+       'breakbeat', 'british', 'cantopop', 'chicago-house', 'children',
+       'chill', 'classical', 'club', 'comedy', 'country', 'dance',
+       'dancehall', 'death-metal', 'deep-house', 'detroit-techno',
+       'disco', 'drum-and-bass', 'dub', 'dubstep', 'edm', 'electro',
+       'electronic', 'emo', 'folk', 'forro', 'french', 'funk', 'garage',
+       'german', 'gospel', 'goth', 'grindcore', 'groove', 'grunge',
+       'guitar', 'happy', 'hard-rock', 'hardcore', 'hardstyle',
+       'heavy-metal', 'hip-hop', 'honky-tonk', 'house', 'idm', 'indian',
+       'indie', 'indie-pop', 'industrial', 'iranian', 'j-dance', 'j-idol',
+       'j-pop', 'j-rock', 'jazz', 'k-pop', 'kids', 'latin', 'latino',
+       'malay', 'mandopop', 'metal', 'metalcore', 'minimal-techno', 'mpb',
+       'new-age', 'opera', 'pagode', 'party', 'piano', 'pop', 'pop-film',
+       'power-pop', 'progressive-house', 'psych-rock', 'punk',
+       'punk-rock', 'r-n-b', 'reggae', 'reggaeton', 'rock', 'rock-n-roll',
+       'rockabilly', 'romance', 'sad', 'salsa', 'samba', 'sertanejo',
+       'show-tunes', 'singer-songwriter', 'ska', 'sleep', 'songwriter',
+       'soul', 'spanish', 'study', 'swedish', 'synth-pop', 'tango',
+       'techno', 'trance', 'trip-hop', 'turkish', 'world-music']
+def get_genre(track_name,artist_name):
+
+    base_url = 'http://ws.audioscrobbler.com/2.0/'
+    params = {'method': 'track.gettoptags',
+            'artist': artist_name,
+            'track': track_name,
+            'api_key': 'd30646344918494a4e45ea08ad6fc629',
+            'format': 'json'}
+
+    # Make the request to LastFM
+    response = requests.get(base_url, params=params)
+    # Check to make sure the request was successful
+    if response.status_code == 200:
+        # Get the tags from the response
+        tags = response.json().get('toptags', {}).get('tag', [])
+        for tag in tags:
+            
+            if tag.get('name') in liste:
+                return tag.get('name')
+                    
+
+        
+    
 
 load_dotenv()
 client_ID = os.getenv('CLIENT_ID')
@@ -62,54 +106,66 @@ def homepage_view(request):
 
             url = 'http://127.0.0.1:8001/predict'
             tracks = request.POST.get('tracks')
-        artiste = request.POST.get('artiste')
-        query = form.cleaned_data
-        access_token = get_access_token(client_ID, client_secret)
+            artiste = request.POST.get('artiste')
+            query = form.cleaned_data
+            access_token = get_access_token(client_ID, client_secret)
 
-        # utilisez la query pour requeter l'api de spotify
-        id = get_track_id(query['artiste'], query['tracks'], access_token)
-        res = get_audio_features(id, access_token)
-        col_names = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
-                     'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms']
+            # utilisez la query pour requeter l'api de spotify
+            id = get_track_id(query['artiste'], query['tracks'], access_token)
+            res = get_audio_features(id, access_token)
+            res.append(get_genre(query['tracks'],query['artiste']))
+            col_names = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
+                        'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms','genre']
 
-        features = json.dumps(dict(zip(col_names, res)))
+            features = json.dumps(dict(zip(col_names, res)))
 
-        parameters = Parameters(
-            danceability=res[0],
-            energy=res[1],
-            key=res[2],
-            loudness=res[3],
-            mode=res[4],
-            speechiness=res[5],
-            acousticness=res[6],
-            instrumentalness=res[7],
-            liveness=res[8],
-            valence=res[9],
-            tempo=res[10],
-            duration_ms=res[11],
-        )
+            parameters = Parameters(
+                danceability=res[0],
+                energy=res[1],
+                key=res[2],
+                loudness=res[3],
+                mode=res[4],
+                speechiness=res[5],
+                acousticness=res[6],
+                instrumentalness=res[7],
+                liveness=res[8],
+                valence=res[9],
+                tempo=res[10],
+                duration_ms=res[11],
+                genre = str(res[12])
+            )
 
-        parameters.save()
+            parameters.save()
+            
+            model = requests.post(url=url, data=features, headers=headers)
+            model_result = round(float(model.text), 0)
+            form(
+                tracks=tracks,
+                artiste=artiste,
+                user=request.user,
+                popularity=model_result,
+                genre = str(res[12])
 
-        model = requests.post(url=url, data=features, headers=headers)
-        model_result = round(float(model.text), 0)
-        form(
-            tracks=tracks,
-            artiste=artiste,
-            user=request.user,
-            popularity=model_result
-
-        )
-        form.save()
-        return render(request, 'result.html', context={'result': model_result})
+            )
+            form.save()
+            return render(request, 'result.html', context={'result': model_result})
 
     else:
         return render(request, "homepage.html", context={'predict':  predict})
 
 
 def profil_request(request):
-    labels = []
-    data = []
-    history = Prediction.objects.filter(user=request.user)
+   
+    genres = []
 
-    return render(request, 'profil.html',context = {'history':history})
+    queryset = Prediction.objects.filter(user=request.user)
+    taille = len(queryset)
+    for obj in queryset:
+        genres.append(obj.genre)
+    dico = dict((x,genres.count(x)) for x in set(genres))
+    labels =dico.keys()
+    data= dico.values()
+    
+    
+
+    return render(request, 'profil.html',context = {'labels':labels, 'data':data})
