@@ -6,3 +6,5 @@ pydantic==1.10.4
 fastapi
 uvicorn
 pandas
+scikit-learn
+xgboost

@@ -1,34 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="chartContainer" style="width: 100%; height: 360px;"></div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
 {% csrf_token %}
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    window.onload = function () {
-      var chart = new CanvasJS.Chart("chartContainer",{
-        exportEnabled: true,
-        animationEnabled: true,
-        theme: "dark2",
-        title: {
-          text: "Historique de recherche"
-        },
-        subtitles: [{
-          text: "Genres musicaux les plus recherché"
-        }],
-        data: [{
-          type: "doughnut",
-          startAngle: -90,
-          indexLabel: "{name} ({y})",
-          yValueFormatString: "#,##0.0#\"%\"",
-          dataPoints: {{ data|safe }}
+  $(document).ready(function()
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const data = {
+        labels: [
+          {% for elt in labels  %}
+          {{elt}}
+          {% endfor %}
+        ],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [
+          {% for elt in data%}
+          {{elt}}
+          {%endfor%}
+          ],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
         }]
-      });
-      chart.render();
-    }
-  </script>    
+      };
+      const config = {
+        type: 'doughnut',
+        data: data,
+      };
+  );
+
+</script> 
+
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  <form class = 'square'>
+    {% for query in historic %}
+    <div class = 'quest'>
+        Artiste : {{query.artiste}}
+        Chanson : {{query.tracks}}
+        Popularité : {{query.popularity}}
+        Genre : {{query.genre}}
+
+    </div>
+    {% endfor %}
+  </form>
+  
       
 {% endblock content %}
