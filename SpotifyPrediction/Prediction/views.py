@@ -58,11 +58,12 @@ def get_genre(track_name,artist_name,liste_genre):
                     
 
         
-    
+CLIENT_ID='888ac36415ae4222963844446b366e94'
+CLIENT_SECRET='82a4e9a7b57e4e0eb0f798c98bea6c9c'
 
 load_dotenv()
-client_ID = os.getenv('CLIENT_ID')
-client_secret = os.getenv('CLIENT_SECRET')
+client_ID = CLIENT_ID
+client_secret = CLIENT_SECRET
 
 
 def register_request(request):
@@ -107,7 +108,7 @@ def homepage_view(request):
         form = predict(request.POST or None)
         if form.is_valid():
 
-            url = 'http://127.0.0.1:8001/predict'
+            url = 'http://20.23.135.193/predict'
             
             query = form.cleaned_data
             access_token = get_access_token(client_ID, client_secret)
