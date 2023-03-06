@@ -44,11 +44,9 @@ def get_genre(track_name,artist_name,liste_genre):
             'format': 'json'}
 
     # Make the request to LastFM
-    print(liste_genre)
 
     response = requests.get(base_url, params=params)
     # Check to make sure the request was successful
-    print(response)
     if response.status_code == 200:
         # Get the tags from the response
         tags = response.json().get('toptags', {}).get('tag', [])
@@ -110,15 +108,19 @@ def homepage_view(request):
         if form.is_valid():
 
             url = 'http://127.0.0.1:8001/predict'
-            tracks = request.POST.get('tracks')
-            artiste = request.POST.get('artiste')
+            
             query = form.cleaned_data
             access_token = get_access_token(client_ID, client_secret)
-
             # utilisez la query pour requeter l'api de spotify
             id = get_track_id(query['artiste'], query['tracks'], access_token)
             res = get_audio_features(id, access_token)
-            stock = get_genre(query['tracks'],query['artiste'],liste_genre)
+           
+
+            stock = get_genre(f"{query['tracks']}" , f"{query['artiste']}", liste_genre)
+            # stock = get_genre('Shape of you','Ed Sheeran',liste_genre)
+
+            print(stock)
+
             res.append(stock)
             col_names = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
                         'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms','genre']
@@ -140,22 +142,20 @@ def homepage_view(request):
                 duration_ms=res[11],
                 genre = str(res[12])
             )
-            print(query['artiste'])
-            print(res[12])
+            
             parameters.save()
             
             model = requests.post(url=url, data=features, headers=headers)
-            print(model)
-            model_result = round(float(model.text), 0)
-            form(
-                tracks=tracks,
-                artiste=artiste,
+            model_result = int(round(float(model.text),0))
+            historique = Prediction(
+                tracks=query['tracks'],
+                artiste=query['artiste'],
                 user=request.user,
                 popularity=model_result,
                 genre = str(res[12])
 
             )
-            form.save()
+            historique.save()
             return render(request, 'result.html', context={'result': model_result})
 
     else:
@@ -163,17 +163,18 @@ def homepage_view(request):
 
 
 def profil_request(request):
-   
+    
     genres = []
 
     queryset = Prediction.objects.filter(user=request.user)
-    taille = len(queryset)
     for obj in queryset:
         genres.append(obj.genre)
     dico = dict((x,genres.count(x)) for x in set(genres))
     labels =dico.keys()
     data= dico.values()
+    print(dico)
+    [((elt*100)/sum(data)) for elt in data]
     
     
 
-    return render(request, 'profil.html',context = {'labels':labels, 'data':data})
+    return render(request, 'profil.html',context = {'labels':labels, 'data':data , 'historic':queryset})
