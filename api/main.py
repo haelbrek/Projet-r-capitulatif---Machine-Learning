@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 
-pickle_in = open('random_shearch.pkl', 'rb') 
+pickle_in = open('api.pkl', 'rb') 
 Pipeline_lr = joblib.load(pickle_in)
 
 
@@ -35,3 +35,4 @@ def predict(data:Request_Body):
 
     class_idx=Pipeline_lr.predict(new_data)[0]
     return  float(class_idx)
+

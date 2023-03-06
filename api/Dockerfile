@@ -1,15 +1,15 @@
-FROM python:3.9.15 
 
-WORKDIR /app 
+FROM python:3.11-slim
 
-ENV PYTHONUNBUFFERED 1 
+WORKDIR /app
 
-COPY . /app 
+COPY requirements.txt /app
+RUN     pip install -r requirements.txt
 
-RUN pip install --upgrade pip && \ 
-    pip install -r requirements.txt 
-    
+    # pip install joblib && \
+    # pip install -U scikit-learn && \
+    # pip install xgboost && \
 
-EXPOSE 8001
+COPY . /app
 
-CMD ["uvicorn","api:app","--reload","--host","0.0.0.0","--port","8001"]
+CMD ["uvicorn", "main:app",  "--host", "0.0.0.0", "--port", "8000"]
