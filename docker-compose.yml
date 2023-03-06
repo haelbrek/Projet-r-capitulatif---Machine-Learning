@@ -1,0 +1,21 @@
+version: '3'
+services:
+  fastapi:
+    build: ./fastApi
+    ports:
+      - "8000:8000"
+    networks:
+      - custom_network
+  django:
+    build: ./spotify
+    ports:
+      - "8001:8001"
+    networks:
+      - custom_network
+    depends_on:
+      - fastapi
+
+networks:
+  custom_network:
+
+
