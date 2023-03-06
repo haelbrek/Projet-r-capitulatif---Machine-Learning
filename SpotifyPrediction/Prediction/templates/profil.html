@@ -4,16 +4,24 @@
 
 {% csrf_token %}
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    const ctx = document.getElementById('myChart');
+  $(document).ready(function()
+
+    const ctx = document.getElementById('myChart').getContext('2d');
     const data = {
         labels: [
-          {{labels}}
+          {% for elt in labels  %}
+          {{elt}}
+          {% endfor %}
         ],
         datasets: [{
           label: 'My First Dataset',
-          data: [{{data}}],
+          data: [
+          {% for elt in data%}
+          {{elt}}
+          {%endfor%}
+          ],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
@@ -26,8 +34,12 @@
         type: 'doughnut',
         data: data,
       };
+  );
+
 </script> 
-    <div>
+
+
+  <div>
     <canvas id="myChart"></canvas>
   </div>
   <form class = 'square'>
